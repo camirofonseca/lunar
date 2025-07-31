@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico Lunar | Excelência em Saúde - Tete, Moçambique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0c1892;
+            --primary-dark: #08106d;
+            --secondary: #0be2ff;
+            --secondary-light: #d9f9ff;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #1e293b;
+            --accent: #ff6b6b;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header Premium */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(12, 24, 146, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(12, 24, 146, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark-gray);
+            box-shadow: 0 4px 15px rgba(11, 226, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #09cce6;
+            box-shadow: 0 6px 20px rgba(11, 226, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Hero Section Premium */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(12, 24, 146, 0.9) 0%, rgba(11, 226, 255, 0.8) 100%);
+            z-index: 1;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 700px;
+        }
+        
+        .hero-slogan {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .stat-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 1rem auto 0;
+            color: var(--dark-gray);
+            opacity: 0.8;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .about-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background-color: var(--accent);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+        }
+        
+        .about-badge span:first-child {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-features {
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            padding: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+            color: white;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .service-card:hover .btn-service {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .btn-service {
+            background-color: var(--secondary);
+            color: var(--dark-gray);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Team Section */
+        .team {
+            background-color: var(--light-gray);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .team-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--medium-gray);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-photo {
+            border-color: var(--secondary-light);
+        }
+        
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .team-card .specialty {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .team-card .experience {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--dark-gray);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: var(--primary);
+            z-index: -1;
+        }
+        
+        .testimonial-slider {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--secondary-light);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-quote::before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-quote::after {
+            bottom: -30px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: var(--dark-gray);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background-color: var(--light-gray);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: var(--secondary-light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1.2rem;
+            color: var(--dark-gray);
+            opacity: 0.8;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            opacity: 0.7;
+        }
+        
+        /* Appointment Section */
+        .appointment {
+            background: linear-gradient(135deg, rgba(12, 24, 146, 0.9) 0%, rgba(11, 226, 255, 0.9) 100%);
+            color: white;
+        }
+        
+        .appointment-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .appointment-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .appointment-content p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .appointment-features {
+            margin: 2rem 0;
+        }
+        
+        .appointment-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .appointment-feature i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+        
+        .appointment-form {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(11, 226, 255, 0.2);
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-text a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .map-container {
+            height: 100%;
+            min-height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 12px;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-logo-text span {
+            color: var(--secondary);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            color: var(--dark-gray);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-newsletter p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--secondary);
+            color: var(--dark-gray);
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            background-color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-text {
+            font-size: 0.7rem;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .appointment-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .appointment-content {
+                text-align: center;
+            }
+            
+            .appointment-features {
+                max-width: 500px;
+                margin: 2rem auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none; /* Replace with mobile menu in actual implementation */
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <!-- Logo placeholder - in a real implementation, use a proper logo image -->
+                    <img src="https://via.placeholder.com/40x40/0c1892/ffffff?text=CM" alt="Centro Médico Lunar" aria-hidden="true">
+                    <div class="logo-text">Centro <span>Médico Lunar</span></div>
+                </div>
+                <div class="nav-links">
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre Nós</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#equipa">Equipa</a>
+                    <a href="#depoimentos">Depoimentos</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contactos">Contactos</a>
+                    <a href="#marcar" class="btn">Marcar Consulta</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <!-- Image from Unsplash - Medical team -->
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipe médica do Centro Médico Lunar" class="hero-bg">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <span class="hero-slogan">Por Um Indivíduo Saudável... Por Uma Família Saudável...</span>
+                <h1 class="hero-title">Excelência em Cuidados Médicos Integrados</h1>
+                <p class="hero-subtitle">Na província de Tete, oferecemos atendimento humanizado e tecnologia avançada para toda a família desde 2015.</p>
+                <div class="btn-container">
+                    <a href="#marcar" class="btn">Agendar Consulta <i class="fas fa-calendar-alt"></i></a>
+                    <a href="#servicos" class="btn btn-outline">Nossos Serviços</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item fade-in-up delay-1">
+                        <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+                        <div>
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Especialistas</div>
+                        </div>
+                    </div>
+                    <div class="stat-item fade-in-up delay-2">
+                        <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                        <div>
+                            <div class="stat-number">5.000+</div>
+                            <div class="stat-label">Pacientes</div>
+                        </div>
+                    </div>
+                    <div class="stat-item fade-in-up delay-3">
+                        <div class="stat-icon"><i class="fas fa-hospital"></i></div>
+                        <div>
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Especialidades</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="sobre">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+                <div class="divider"></div>
+                <p>Conheça nossa história, missão e valores que nos guiam desde 2015</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <!-- Image from Unsplash - Clinic building -->
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fachada do Centro Médico Lunar">
+                    <div class="about-badge">
+                        <span>8</span>
+                        <span>Anos</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3>Compromisso com a Saúde da Comunidade</h3>
+                    <p>Fundado em 2015, o Centro Médico Lunar nasceu da necessidade de oferecer cuidados de saúde integrados e acessíveis na província de Tete. Nossa jornada começou com uma pequena equipe e um grande sonho: transformar a realidade da saúde na nossa região.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Excelência Clínica</h4>
+                                <p>Protocolos baseados em evidências científicas e equipamentos modernos</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Abordagem Humanizada</h4>
+                                <p>Atendimento personalizado que considera cada paciente em sua integralidade</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Responsabilidade Social</h4>
+                                <p>Programas comunitários e preços acessíveis para garantir o acesso à saúde</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#sobre" class="btn">Conheça Nossa História</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <div class="divider"></div>
+                <p>Cuidados médicos especializados para todas as fases da vida</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Clínica Geral</h3>
+                    <p>Atendimento médico completo para diagnóstico, tratamento e acompanhamento de diversas condições de saúde, com foco em prevenção e bem-estar.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+                <div class="service-card fade-in-up delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Ginecologia e Obstetrícia</h3>
+                    <p>Cuidados especializados para a saúde da mulher em todas as fases da vida, desde a adolescência até a menopausa, incluindo acompanhamento pré-natal.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+                <div class="service-card fade-in-up delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Pediatria</h3>
+                    <p>Atendimento especializado para crianças e adolescentes, com acompanhamento de crescimento, desenvolvimento e calendário vacinal completo.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3>Diagnóstico por Imagem</h3>
+                    <p>Exames de ultrassonografia, radiografia e ecografias realizados por profissionais experientes com equipamentos de última geração.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+                <div class="service-card fade-in-up delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Odontologia</h3>
+                    <p>Tratamentos dentários completos, desde prevenção até procedimentos estéticos e reabilitadores, para toda a família.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+                <div class="service-card fade-in-up delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Psicologia</h3>
+                    <p>Acompanhamento psicológico individual e familiar, com abordagens modernas para promoção da saúde mental e qualidade de vida.</p>
+                    <button class="btn-service">Saiba Mais</button>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#servicos" class="btn btn-secondary">Ver Todos os Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team" id="equipa">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa Equipa</h2>
+                <div class="divider"></div>
+                <p>Profissionais qualificados e comprometidos com seu bem-estar</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-in-up">
+                    <!-- Doctor image from Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dr. João Mário" class="team-photo">
+                    <h3>Dr. João Mário</h3>
+                    <span class="specialty">Clínico Geral</span>
+                    <div class="experience">
+                        <i class="fas fa-award"></i>
+                        <span>15 anos de experiência</span>
+                    </div>
+                    <p>Formado pela Universidade Eduardo Mondlane com especialização em Medicina Familiar.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn do Dr. João Mário"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Publicações do Dr. João Mário"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="team-card fade-in-up delay-1">
+                    <!-- Doctor image from Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Dra. Ana Silva" class="team-photo">
+                    <h3>Dra. Ana Silva</h3>
+                    <span class="specialty">Ginecologista e Obstetra</span>
+                    <div class="experience">
+                        <i class="fas fa-award"></i>
+                        <span>10 anos de experiência</span>
+                    </div>
+                    <p>Especialista em Saúde da Mulher pela Universidade de Lisboa, com foco em gestação de alto risco.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn da Dra. Ana Silva"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Publicações da Dra. Ana Silva"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="team-card fade-in-up delay-2">
+                    <!-- Doctor image from Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Dr. Carlos Mendes" class="team-photo">
+                    <h3>Dr. Carlos Mendes</h3>
+                    <span class="specialty">Pediatra</span>
+                    <div class="experience">
+                        <i class="fas fa-award"></i>
+                        <span>12 anos de experiência</span>
+                    </div>
+                    <p>Especializado em Pediatria pela Universidade do Porto, com formação em Emergências Pediátricas.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn do Dr. Carlos Mendes"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Publicações do Dr. Carlos Mendes"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="team-card fade-in-up delay-3">
+                    <!-- Doctor image from Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Dra. Marta Cossa" class="team-photo">
+                    <h3>Dra. Marta Cossa</h3>
+                    <span class="specialty">Psicóloga Clínica</span>
+                    <div class="experience">
+                        <i class="fas fa-award"></i>
+                        <span>8 anos de experiência</span>
+                    </div>
+                    <p>Mestre em Psicologia Clínica e da Saúde com abordagem em Terapia Cognitivo-Comportamental.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn da Dra. Marta Cossa"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Publicações da Dra. Marta Cossa"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#equipa" class="btn">Conheça Toda a Equipa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Depoimentos</h2>
+                <div class="divider"></div>
+                <p style="color: white; opacity: 0.9;">O que nossos pacientes dizem sobre nossa qualidade de atendimento</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <!-- Patient image from Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Maria João" class="testimonial-avatar">
+                    <p class="testimonial-quote">O atendimento no Centro Médico Lunar mudou minha vida. Depois de anos com dores, finalmente encontrei um diagnóstico preciso e um tratamento eficaz. A equipe é extremamente atenciosa e profissional.</p>
+                    <div class="testimonial-author">Maria João</div>
+                    <div class="testimonial-role">Paciente de Clínica Geral</div>
+                </div>
+                <!-- More testimonials would be added here with a slider -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Artigos de Saúde</h2>
+                <div class="divider"></div>
+                <p>Informações e dicas para manter sua saúde em dia</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card fade-in-up">
+                    <div class="blog-image">
+                        <!-- Article image from Unsplash -->
+                        <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Prevenção de doenças cardiovasculares">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Cardiologia</span>
+                        <h3 class="blog-title">Como Prevenir Doenças Cardiovasculares</h3>
+                        <p class="blog-excerpt">Conheça os principais fatores de risco e as medidas simples que podem proteger seu coração e melhorar sua qualidade de vida.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> 15 Jun 2023</span>
+                            <span><i class="far fa-clock"></i> 5 min leitura</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card fade-in-up delay-1">
+                    <div class="blog-image">
+                        <!-- Article image from Unsplash -->
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Vacinação infantil">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Pediatria</span>
+                        <h3 class="blog-title">Vacinação Infantil: Tudo o que precisa saber</h3>
+                        <p class="blog-excerpt">Guia completo sobre o calendário de vacinação, importância e mitos comuns sobre imunização infantil.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> 2 Jun 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min leitura</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card fade-in-up delay-2">
+                    <div class="blog-image">
+                        <!-- Article image from Unsplash -->
+                        <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Saúde mental">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Psicologia</span>
+                        <h3 class="blog-title">Cuidando da Saúde Mental em Tempos Difíceis</h3>
+                        <p class="blog-excerpt">Estratégias práticas para gerenciar o estresse e a ansiedade no dia a dia, promovendo equilíbrio emocional.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> 20 Mai 2023</span>
+                            <span><i class="far fa-clock"></i> 6 min leitura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#blog" class="btn btn-secondary">Ver Todos os Artigos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="section appointment" id="marcar">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-content fade-in-up">
+                    <h2>Agende Sua Consulta</h2>
+                    <p>Preencha o formulário ao lado e nossa equipe entrará em contato para confirmar seu agendamento. Oferecemos horários flexíveis para melhor atender suas necessidades.</p>
+                    
+                    <div class="appointment-features">
+                        <div class="appointment-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Confirmação rápida por WhatsApp</span>
+                        </div>
+                        <div class="appointment-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lembretes de consulta por SMS</span>
+                        </div>
+                        <div class="appointment-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cancelamento facilitado</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Horário de Atendimento</h3>
+                        <p><strong>Segunda a Sexta:</strong> 7h30 - 19h00</p>
+                        <p><strong>Sábado:</strong> 8h00 - 13h00</p>
+                        <p><strong>Emergências:</strong> 24h pelo telefone +258 84 123 4567</p>
+                    </div>
+                </div>
+                
+                <div class="appointment-form fade-in-up delay-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email (opcional)</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Serviço Desejado</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="clinica-geral">Clínica Geral</option>
+                                <option value="ginecologia">Ginecologia</option>
+                                <option value="pediatria">Pediatria</option>
+                                <option value="odontologia">Odontologia</option>
+                                <option value="psicologia">Psicologia</option>
+                                <option value="diagnostico">Diagnóstico por Imagem</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Preferência de Médico (opcional)</label>
+                            <select id="doctor" class="form-control">
+                                <option value="">Qualquer médico</option>
+                                <option value="dr-joao">Dr. João Mário</option>
+                                <option value="dra-ana">Dra. Ana Silva</option>
+                                <option value="dr-carlos">Dr. Carlos Mendes</option>
+                                <option value="dra-marta">Dra. Marta Cossa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Data Preferencial</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem (opcional)</label>
+                            <textarea id="message" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Solicitar Agendamento</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contactos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactos</h2>
+                <div class="divider"></div>
+                <p>Estamos sempre disponíveis para esclarecer suas dúvidas e receber seu feedback</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Endereço</h3>
+                            <p>Av. da Liberdade, Nº 123<br>Tete, Moçambique</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Telefone</h3>
+                            <p>
+                                <a href="tel:+258841234567">+258 84 123 4567</a><br>
+                                <a href="tel:+258821234567">+258 82 123 4567</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>
+                                <a href="mailto:info@centromedicolunar.co.mz">info@centromedicolunar.co.mz</a><br>
+                                <a href="mailto:agendamentos@centromedicolunar.co.mz">agendamentos@centromedicolunar.co.mz</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Horário</h3>
+                            <p>
+                                <strong>Segunda a Sexta:</strong> 7h30 - 19h00<br>
+                                <strong>Sábado:</strong> 8h00 - 13h00<br>
+                                <strong>Domingo:</strong> Fechado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.674090380957!2d33.58621531536945!3d-16.15680498798639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDA5JzI0LjUiUyAzM8KwMzUnMTkuOSJF!5e0!3m2!1sen!2smz!4v1620000000000!5m2!1sen!2smz" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <!-- Logo placeholder - in a real implementation, use a proper logo image -->
+                        <img src="https://via.placeholder.com/40x40/ffffff/0c1892?text=CM" alt="Centro Médico Lunar" aria-hidden="true">
+                        <div class="footer-logo-text">Centro <span>Médico Lunar</span></div>
+                    </div>
+                    <p>Oferecendo cuidados de saúde acessíveis e de qualidade na província de Tete desde 2015, com abordagem integrada e humanizada.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#equipa">Equipa Médica</a></li>
+                        <li><a href="#blog">Blog de Saúde</a></li>
+                        <li><a href="#contactos">Contactos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#servicos">Clínica Geral</a></li>
+                        <li><a href="#servicos">Ginecologia</a></li>
+                        <li><a href="#servicos">Pediatria</a></li>
+                        <li><a href="#servicos">Odontologia</a></li>
+                        <li><a href="#servicos">Psicologia</a></li>
+                        <li><a href="#servicos">Diagnóstico por Imagem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Assine nossa newsletter e receba dicas de saúde e novidades do centro médico diretamente no seu email.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p><small>Ao assinar, você concorda com nossa Política de Privacidade.</small></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Centro Médico Lunar. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: var(--secondary);"></i> por <a href="#" style="color: var(--secondary); text-decoration: none;">Equipe Lunar</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/258841234567" class="whatsapp-btn" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Fale Conosco</span>
+    </a>
+
+    <script>
+        // Simple script for demonstration purposes
+        // In a real implementation, you would use a proper slider library and more robust JavaScript
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        // In a real implementation, you would use Intersection Observer API
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
